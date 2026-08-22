@@ -1,27 +1,37 @@
-## OS
+# OS
 .DS_Store
 Thumbs.db
 desktop.ini
 
-## Editors/IDEs
+# Editors / IDEs
 .vscode/
+.vs/
 .idea/
 *.code-workspace
 
-## Arduino/Build artifacts
+# Arduino / build artifacts
 build/
+*.ino.cpp
 *.hex
 *.elf
+*.eep
 *.bin
 *.map
+*.d
+*.o
+*.obj
+*.a
 
-## PlatformIO (if used later)
+# PlatformIO
 .pio/
+.pioenvs/
+.piolibdeps/
 
-## Logs and misc
+# Logs / temporary files
 *.log
 *.tmp
 *.bak
+*.orig
+*~
 ~$*
-
-
+._*
