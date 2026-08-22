@@ -4,7 +4,7 @@ A tiny monochrome endless runner for Arduino Nano/Uno and a 128×64 SSD1306 OLED
 
 ![SkippyGecko start screen](assets/splash.jpg)
 
-Part of **MonoPocket** — a small collection of self-contained Arduino/OLED games built around the same compact three-button setup.
+Part of **Gearback** — a small collection of self-contained Arduino/OLED games built around the same compact three-button setup.
 
 This is an original hobby project and is not affiliated with any third-party game or brand.
 
