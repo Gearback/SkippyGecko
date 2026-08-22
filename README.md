@@ -1,61 +1,72 @@
-# SkippyGecko (Arduino Game)
+# SkippyGecko
 
-An endless runner for Arduino Nano/Uno with a 128x64 I2C SSD1306 OLED. Features jumping/ducking obstacles (cacti/birds), parallax clouds, distance-based speed scaling, EEPROM high score, a start/menu/about flow, and standby sleep/wake.
+A tiny monochrome endless runner for Arduino Nano/Uno and a 128×64 SSD1306 OLED.
 
-This is an original hobby project; not affiliated with any third-party brand. Recommended board: “Arduino Nano Super Mini” (ATmega328P).
+![SkippyGecko start screen](assets/splash.jpg)
 
-## Requirements
-- Arduino IDE or Arduino CLI
-- Target board: Arduino Nano/Uno (ATmega328P)
-- 128x64 SSD1306 OLED via I2C (default address 0x3C)
-- Libraries:
-  - Adafruit GFX Library
-  - Adafruit SSD1306
-  - Wire (bundled)
-  - EEPROM (bundled on AVR)
+Part of **Gearback** — a small collection of self-contained Arduino/OLED games built around the same compact three-button setup.
 
-Install libraries from Arduino IDE:
-- Sketch → Include Library → Manage Libraries
-- Search and install “Adafruit GFX Library” and “Adafruit SSD1306”
+This is an original hobby project and is not affiliated with any third-party game or brand.
 
-## Wiring (Nano/Uno)
-- SSD1306 OLED (I2C):
-  - SDA → A4
-  - SCL → A5
-  - VCC → 5V
-  - GND → GND
-- Buttons (internal pull-ups, active-LOW):
-  - `BTN_NEXT` on D7 (Jump)
-  - `BTN_PREV` on D6 (Duck)
-  - `BTN_ENTER` on D3 (short = sleep/wake, long = open menu on Start)
+## Highlights
 
-Note: For other boards, adjust I2C pins accordingly.
+- Jump and duck around cacti and birds
+- Distance-based speed progression
+- Parallax clouds and scrolling terrain
+- EEPROM-backed high score
+- Start, menu, about, game-over, and standby flows
+- Designed for ATmega328P-class boards
 
-## Repo Layout
-- `project.ino`: main game sketch
-- `src/`: assets (images used for design; the sketch embeds 1-bit bitmaps)
+## Hardware
 
-## Build & Upload
-1) Open `project.ino` in Arduino IDE.
-2) Tools:
-   - Board: Arduino Nano (or Uno)
-   - Processor: ATmega328P (Old Bootloader if your Nano clone needs it)
-   - Port: select the correct COM port
-3) Ensure required libraries are installed.
-4) Click Upload.
+- Arduino Nano or Uno (ATmega328P)
+- 128×64 SSD1306 OLED over I2C, default address `0x3C`
+- Three momentary buttons
 
-Notes:
-- I2C address is `0x3C`; if your display differs, change it in `display.begin(...)`.
-- High score is stored in EEPROM.
-- Arduino IDE may prompt to rename the folder to match `project.ino`. You can accept or keep your folder and open the file directly.
+### Libraries
+
+- Adafruit GFX Library
+- Adafruit SSD1306
+- Wire (bundled with Arduino)
+- EEPROM (bundled on AVR)
+
+## Wiring
+
+| Function | Pin |
+| --- | --- |
+| OLED SDA | A4 |
+| OLED SCL | A5 |
+| OLED VCC | 5V |
+| OLED GND | GND |
+| Jump | D7 |
+| Duck | D6 |
+| Enter / menu / sleep | D3 |
+
+Buttons use the MCU's internal pull-ups and are active-low.
+
+## Build and upload
+
+1. Open `SkippyGecko.ino` in Arduino IDE or build it with Arduino CLI.
+2. Select an Arduino Nano or Uno with an ATmega328P.
+3. Install the required Adafruit libraries.
+4. Select the correct serial port and upload.
+
+Some Nano clones may require the **Old Bootloader** processor option.
 
 ## Controls
-- D7 (hold/tap): jump
-- D6 (hold): duck
-- D3 short-press: standby/sleep; press again to wake (from Start)
-- D3 long-press (Start): open menu (About, Reset Highscore, Back)
+
+- D7: jump
+- D6: duck
+- D3 short press on the start screen: standby / wake
+- D3 long press on the start screen: open menu
+
+## Repository layout
+
+- `SkippyGecko.ino` — complete game sketch
+- `assets/` — source/reference artwork used while designing the monochrome game graphics
+
+The 128×64 start background and gameplay bitmaps used at runtime are embedded directly in the sketch.
 
 ## License
+
 MIT — see `LICENSE`.
-
-
